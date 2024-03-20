@@ -1,0 +1,12 @@
+{
+  "extends": "@nnecec/tsconfig/react.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmitOnError": false,
+    "paths": {
+      "@color-kit/palette": ["packages/palette/src"],
+      "tailwind-plugin-palette": ["packages/tailwind-plugin-palette/src"]
+    }
+  },
+  "include": ["packages/**/*", "tools/**/*", "apps/**/*"]
+}

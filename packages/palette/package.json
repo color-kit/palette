@@ -1,0 +1,37 @@
+{
+  "name": "@color-kit/palette",
+  "version": "0.0.0",
+  "description": "The palette for color-kit",
+  "keywords": [
+    "color"
+  ],
+  "homepage": "",
+  "repository": "https://github.com/color-kit/palette",
+  "license": "MIT",
+  "author": "nnecec <nnecec@gmail.com>",
+  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "bunchee",
+    "dev": "bunchee -w"
+  },
+  "dependencies": {
+    "@material/material-color-utilities": "^0.2.7",
+    "culori": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/culori": "^2.1.0",
+    "bunchee": "^4.4.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

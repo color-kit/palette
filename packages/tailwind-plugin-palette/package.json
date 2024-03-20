@@ -1,0 +1,40 @@
+{
+  "name": "tailwind-plugin-palette",
+  "version": "0.0.0",
+  "description": "@color-kit/palette for tailwindcss",
+  "keywords": [
+    "color"
+  ],
+  "homepage": "",
+  "repository": "https://github.com/color-kit/palette",
+  "license": "MIT",
+  "author": "nnecec <nnecec@gmail.com>",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "bunchee",
+    "dev": "bunchee -w"
+  },
+  "dependencies": {
+    "@color-kit/palette": "workspace:*"
+  },
+  "devDependencies": {
+    "bunchee": "^4.4.8",
+    "tailwindcss": "^3.4.1"
+  },
+  "peerDependencies": {
+    "@material/material-color-utilities": ">=0.2.0",
+    "culori": ">=4.0.0",
+    "tailwindcss": ">=3.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
