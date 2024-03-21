@@ -1,9 +1,9 @@
 # 🎨 ColorKit Palette
 
-<div style="display: flex;justify-content: center;gap: 8px;">
+<p align="center" style="display: flex;justify-content: center;gap: 8px;">
   <img src="./tools/color-kit-palette.svg" width="200" height="200" />
   <img src="./apps/website/src/assets/logo.svg" width="200" height="200" />
-</div>
+</p>
 
 ## Building your own palette with ColorKit Palette
 
