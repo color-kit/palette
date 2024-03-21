@@ -21,10 +21,10 @@ export function PaletteFooter() {
         <MotionImage
           alt="logo"
           animate={{ x: isHovered ? -80 : 0 }}
-          className="relative z-10 bg-white"
+          className="relative z-10"
           height={120}
           initial={{ x: 0 }}
-          src="/palette/assets/logo.svg"
+          src="/assets/logo.svg"
           width={120}
         />
         <motion.div
