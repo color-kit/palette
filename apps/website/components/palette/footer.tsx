@@ -24,7 +24,7 @@ export function PaletteFooter() {
           className="relative z-10 bg-white"
           height={120}
           initial={{ x: 0 }}
-          src="/assets/logo.svg"
+          src="/palette/assets/logo.svg"
           width={120}
         />
         <motion.div

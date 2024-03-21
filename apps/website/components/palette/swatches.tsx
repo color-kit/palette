@@ -1,36 +1,26 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useAtom } from 'jotai'
 
 import { Button, Input, Tooltip } from '@nextui-org/react'
 
-import { getColorName } from '../../utils/color'
+import { getColorName } from '~/utils/color'
+
 import { ColorPicker } from '../color-picker'
 import { colorsAtom, editingSwatchesAtom, paletteAtom } from './utils'
 
 export function PaletteSwatches() {
-  const [inPaletteView, setInPaletteView] = useState(false)
   const [colors, setColors] = useAtom(colorsAtom)
   const [palette] = useAtom(paletteAtom)
 
   const [editingSwatches, setEditingSwatches] = useAtom(editingSwatchesAtom)
 
   const isEmptyPalette = colors.length === 0
-
-  const { scrollY } = useScroll()
-
-  useMotionValueEvent(scrollY, 'change', latest => {
-    if (latest > window.innerHeight / 2) {
-      !inPaletteView && setInPaletteView(true)
-    } else {
-      inPaletteView && setInPaletteView(false)
-    }
-  })
 
   return (
     <div

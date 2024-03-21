@@ -6,8 +6,7 @@
     "changeset": "changeset",
     "clean": "turbo run clean",
     "dev": "turbo run dev --filter='!./apps/*'",
-    "lint": "turbo run lint",
-    "play": "turbo run dev --filter=playground",
+    "lint": "npx eslint . --fix",
     "release": "changeset publish",
     "test": "turbo run test",
     "version": "changeset version"

@@ -1,27 +1,17 @@
 'use client'
 
-import { useState } from 'react'
-
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 import { Snippet } from '@nextui-org/react'
 
-export function PaletteIntro() {
-  const innerHeight = typeof window === undefined ? 600 : window.innerHeight
+import { useWindowDimensions } from '~/utils/use-window-dimensions'
 
-  const [inPaletteView, setInPaletteView] = useState(false)
+export function PaletteIntro() {
+  const { height = 600 } = useWindowDimensions()
 
   const { scrollY } = useScroll()
 
-  useMotionValueEvent(scrollY, 'change', latest => {
-    if (latest > innerHeight / 2) {
-      !inPaletteView && setInPaletteView(true)
-    } else {
-      inPaletteView && setInPaletteView(false)
-    }
-  })
-
-  const titleY = useTransform(scrollY, [0, innerHeight], [0, innerHeight / 2.5])
+  const titleY = useTransform(scrollY, [0, height], [0, height / 2.5])
 
   return (
     <div className="flex h-screen items-center justify-center">

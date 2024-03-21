@@ -3,10 +3,7 @@
 import { MotionConfig } from 'framer-motion'
 import { Provider } from 'jotai'
 
-import { PaletteFooter } from '../components/palette/footer'
-import { PaletteIntro } from '../components/palette/intro'
-import { PaletteSwatches } from '../components/palette/swatches'
-import { PaletteTools } from '../components/palette/tools'
+import { PaletteFooter, PaletteIntro, PaletteSwatches, PaletteTools } from '../components/palette'
 
 export default function RootPage() {
   return (

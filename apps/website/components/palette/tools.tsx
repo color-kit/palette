@@ -21,16 +21,20 @@ import {
   useDisclosure,
 } from '@nextui-org/react'
 
-import { ColorPicker } from '../../components/color-picker'
-import { randomColor } from '../../utils/color'
+import { ColorPicker } from '~/components/color-picker'
+import { randomColor } from '~/utils/color'
+import { useWindowDimensions } from '~/utils/use-window-dimensions'
+
 import { IconButton, colorsAtom, optionsAtom } from './utils'
 
 export function PaletteTools() {
+  const { height = 600 } = useWindowDimensions()
+
   const [inPaletteView, setInPaletteView] = useState(false)
   const [options, setOptions] = useAtom(optionsAtom)
   const [colors, setColors] = useAtom(colorsAtom)
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const toolsRef = useRef()
+  const toolsRef = useRef<HTMLDivElement>(null)
 
   const [, startTransition] = useTransition()
 
@@ -48,7 +52,7 @@ export function PaletteTools() {
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', latest => {
-    if (latest > window.innerHeight / 2) {
+    if (latest > height / 2) {
       !inPaletteView && setInPaletteView(true)
     } else {
       inPaletteView && setInPaletteView(false)
@@ -113,7 +117,7 @@ export function PaletteTools() {
               </IconButton>
             </Tooltip>
 
-            <Popover placement="top-start" portalContainer={toolsRef.current} shouldCloseOnBlur>
+            <Popover placement="top-start" portalContainer={toolsRef.current!} shouldCloseOnBlur>
               <PopoverTrigger>
                 <IconButton>
                   <CogIcon width={14} />
@@ -167,7 +171,7 @@ export function PaletteTools() {
       <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange} scrollBehavior="inside" size="xl">
         <ModalContent>
           <ModalHeader className="text-xl">How to configure your Tailwind.CSS?</ModalHeader>
-          <ModalBody className="prose dark:prose-invert max-h-[50vh] overflow-y-auto">
+          <ModalBody className="prose max-h-[50vh] overflow-y-auto dark:prose-invert">
             <div>
               <h4>1. Install tailwind-plugin-palette</h4>
               <div className="not-prose flex gap-2">

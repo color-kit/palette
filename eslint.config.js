@@ -31,6 +31,7 @@ export default [
   },
   {
     files: ['apps/**/*.{js,jsx,ts,tsx}'],
+    ignores: ['**/node_modules/**', '**/out/**', '**/.next/**'],
     settings: {
       tailwindcss: {
         config: './apps/website/tailwind.config.ts',
