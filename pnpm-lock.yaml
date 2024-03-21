@@ -125,12 +125,6 @@ importers:
       '@color-kit/palette':
         specifier: workspace:*
         version: link:../palette
-      '@material/material-color-utilities':
-        specifier: '>=0.2.0'
-        version: 0.2.7
-      culori:
-        specifier: '>=4.0.0'
-        version: 4.0.1
     devDependencies:
       bunchee:
         specifier: ^4.4.8
