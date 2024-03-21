@@ -5,6 +5,8 @@ import Image from 'next/image'
 
 import { Link } from '@nextui-org/react'
 
+import logo from '~/assets/logo.svg'
+
 const MotionImage = motion(Image)
 
 export function PaletteFooter() {
@@ -24,7 +26,7 @@ export function PaletteFooter() {
           className="relative z-10"
           height={120}
           initial={{ x: 0 }}
-          src="/assets/logo.svg"
+          src={logo}
           width={120}
         />
         <motion.div

@@ -1,9 +1,10 @@
 const isProd = process.env.NODE_ENV === 'production'
 const prefix = '/palette'
 
+console.log(process.env.NODE_ENV)
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  assetPrefix: isProd ? prefix : undefined,
   /**
    * Set base path. This is the slug of your GitHub repository.
    *
@@ -27,6 +28,9 @@ const nextConfig = {
    * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
    */
   output: 'export',
+  publicRuntimeConfig: {
+    staticFolder: isProd ? prefix : undefined,
+  },
   reactStrictMode: true,
 }
 
