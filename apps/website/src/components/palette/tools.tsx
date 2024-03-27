@@ -178,7 +178,7 @@ export function PaletteTools() {
                 <Snippet codeString="npm install --save-dev tailwind-plugin-palette" hideSymbol>
                   npm
                 </Snippet>
-                <Snippet codeString="pnpm install --save-dev tailwind-plugin-palette">pnpm</Snippet>
+                <Snippet codeString="pnpm add --save-dev tailwind-plugin-palette">pnpm</Snippet>
                 <Snippet codeString="bun add --dev tailwind-plugin-palette" hideSymbol>
                   bun
                 </Snippet>
