@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --slate: #ff0000;
+  --sh-class: #ee5d43;
+  --sh-identifier: #ffe66d;
+  --sh-sign: #8996a3;
+  --sh-property: #f39c12;
+  --sh-entity: #00e8c6;
+  --sh-jsxliterals: #f39c12;
+  --sh-string: #96e072;
+  --sh-keyword: #c74ded;
+  --sh-comment: #a0a1a7cc;
 }

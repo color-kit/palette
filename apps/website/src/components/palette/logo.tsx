@@ -7,7 +7,7 @@ import { Link } from '@nextui-org/react'
 
 import logo from '~/assets/logo.svg'
 
-const MotionImage = motion(Image)
+const MotionImage = motion.create(Image)
 
 export function PaletteFooter() {
   const [isHovered, setHovered] = useState(false)

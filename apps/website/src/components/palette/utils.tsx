@@ -2,7 +2,6 @@ import type { ButtonProps } from '@nextui-org/react'
 
 import { forwardRef } from 'react'
 
-import { motion } from 'framer-motion'
 import { atom } from 'jotai'
 import { createPalette } from 'tailwind-plugin-palette'
 
@@ -11,7 +10,6 @@ import { Button } from '@nextui-org/react'
 export const IconButton = forwardRef(function IconButton(props: ButtonProps, ref: any) {
   return <Button isIconOnly radius="full" {...props} ref={ref} />
 })
-export const MotionIconButton = motion(IconButton)
 
 export type Options = {
   dark?: boolean

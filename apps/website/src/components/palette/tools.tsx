@@ -26,6 +26,21 @@ import { randomColor } from '~/utils/color'
 import { useWindowDimensions } from '~/utils/use-window-dimensions'
 
 import { IconButton, colorsAtom, optionsAtom } from './utils'
+import { highlight } from 'sugar-high'
+
+const BASE_DOC = highlight(`import palette, { getTailwindColors } from 'tailwind-plugin-palette'
+
+export default {
+  plugins: [
+    palette({
+      colors: getTailwindColors(400),
+      primary: "#ADCE91",
+      dark: true,
+      reversed: true,
+      harmonize: true
+    })
+  ]
+}`)
 
 export function PaletteTools() {
   const { height = 600 } = useWindowDimensions()
@@ -96,18 +111,20 @@ export function PaletteTools() {
             shape="circle"
             showOutline={false}
           >
-            <ColorPicker
-              className="z-10"
-              onChange={value => {
-                if (!options.primary) {
-                  colors.unshift({ disabled: true, name: 'primary' }, { disabled: true, name: 'secondary' })
-                }
-                startTransition(() => {
-                  setOptions(options => ({ ...options, primary: value }))
-                })
-              }}
-              value={options.primary}
-            />
+            <Tooltip content="Set a primary color">
+              <ColorPicker
+                className="z-10"
+                onChange={value => {
+                  if (!options.primary) {
+                    colors.unshift({ disabled: true, name: 'primary' }, { disabled: true, name: 'secondary' })
+                  }
+                  startTransition(() => {
+                    setOptions(options => ({ ...options, primary: value }))
+                  })
+                }}
+                value={options.primary}
+              />
+            </Tooltip>
           </Badge>
 
           <motion.div className="flex gap-3" layout="position">
@@ -178,45 +195,39 @@ export function PaletteTools() {
                 <Snippet codeString="npm install --save-dev tailwind-plugin-palette" hideSymbol>
                   npm
                 </Snippet>
-                <Snippet codeString="pnpm add --save-dev tailwind-plugin-palette">pnpm</Snippet>
+                <Snippet codeString="pnpm add --save-dev tailwind-plugin-palette" hideSymbol>
+                  pnpm
+                </Snippet>
                 <Snippet codeString="bun add --dev tailwind-plugin-palette" hideSymbol>
                   bun
                 </Snippet>
               </div>
               <h4>2. Configure your tailwind config file</h4>
-              <pre>{`import palette, { getTailwindColors } from 'tailwind-plugin-palette'
-
-export default {
-  plugins: [
-    palette({
-      colors: getTailwindColors(400),
-      primary: "#ADCE91",
-      dark: true,
-      reversed: true,
-      harmonize: true
-    })
-  ]
-}`}</pre>
-              <h4>3. Options</h4>
+              <pre
+                dangerouslySetInnerHTML={{
+                  __html: BASE_DOC,
+                }}
+              ></pre>
+              <h4>Options </h4>
               <ul>
                 <li>
-                  <code>{'colors: Record<string, string>'}</code>: A colors object, where the key is the name of the
-                  color and the value is the hexadecimal value of the color. eg,{' '}
+                  <code className="text-primary">{'colors: Record<string, string>'}</code>: A colors object, where the
+                  key is the name of the color and the value is the hexadecimal value of the color. eg,{' '}
                   <code>{'colors: { red: "#ff0000" }'}</code>
                 </li>
                 <li>
-                  <code>primary: string</code>: Provide a hex value as primary color, automatically generate a secondary
-                  color
+                  <code className="text-primary">primary: string</code>: Provide a hex value as primary color,
+                  automatically generate a secondary color
                 </li>
                 <li>
-                  <code>dark: boolean</code>: Reduce the brightness to adapt to the dark mode
+                  <code className="text-primary">dark: boolean</code>: Reduce the brightness to adapt to the dark mode
                 </li>
                 <li>
-                  <code>reversed: boolean</code>: Reverse the color value
+                  <code className="text-primary">reversed: boolean</code>: Reverse the color value
                 </li>
                 <li>
-                  <code>harmonize: boolean</code>: Make the palette more harmonious with the primary color(primary
-                  required)
+                  <code className="text-primary">harmonize: boolean</code>: Make the palette more harmonious with the
+                  primary color(primary required)
                 </li>
               </ul>
             </div>

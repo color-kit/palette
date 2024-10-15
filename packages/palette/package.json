@@ -24,12 +24,12 @@
     "dev": "bunchee -w"
   },
   "dependencies": {
-    "@material/material-color-utilities": "^0.2.7",
+    "@material/material-color-utilities": "^0.3.0",
     "culori": "^4.0.1"
   },
   "devDependencies": {
-    "@types/culori": "^2.1.0",
-    "bunchee": "^5.0.0"
+    "@types/culori": "^2.1.1",
+    "bunchee": "^5.5.1"
   },
   "publishConfig": {
     "access": "public"
